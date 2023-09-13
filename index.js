@@ -6,10 +6,8 @@ const app = express();
 
 // Middleware
 //app.use(cors());
-console.log("FUNCIONA");
 app.get('/domain/:name', async (req, res) => {
   const { name } = req.params;
-  console.log(name);
   const apiUrl = `https://api.geniidata.com/api/1/sns/name/${name}`;
   
   const headers = {
