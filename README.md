@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# SNS names API using Express Wrapper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple Express.js wrapper for the GeniiData API. This wrapper provides two endpoints that allow users to query ORDINALS domain information by name and to fetch specific fields for a given domain.
 
-## Available Scripts
+Credits: @fservin
 
-In the project directory, you can run:
+Give a follow [Fservin.btc](https://twitter.com/fservin) and show me on Twitter if you run your own!
+Let's build the decentralized internet together!
 
-### `npm start`
+## Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js
+- Express.js
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repository:
 
-### `npm run build`
+```bash
+git clone <repository-url>
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd <directory-name>
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install dependencies:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Start the server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+node <entry-file-name>
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Replace `<entry-file-name>` with the name of the file that uses this module, if it's not provided in the provided code.
 
-## Learn More
+### API Endpoints:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Get Domain Information**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **URL**: `/domain/:name`
+- **Method**: `GET`
+- **URL Params**: `name=[string]` - The name of the domain you want to retrieve information about.
 
-### Code Splitting
+2. **Get Specific Field for Domain**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **URL**: `/domain/:name/:field`
+- **Method**: `GET`
+- **URL Params**:
+  - `name=[string]` - The name of the domain.
+  - `field=[string]` - The specific field you want to retrieve from the domain's information.
 
-### Analyzing the Bundle Size
+### Example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To get information about the domain "example":
 
-### Making a Progressive Web App
+```bash
+curl http://localhost:3000/domain/example
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To get the "registrant" field for the domain "example":
 
-### Advanced Configuration
+```bash
+curl http://localhost:3000/domain/example/registrant
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Important Notes
 
-### Deployment
+- The `cors` middleware is commented out in the provided code. If you need CORS support, you can uncomment and configure it as needed.
+- Ensure you have proper permissions and rights to use the `api-key` provided in the code. Exposing the API key in public code is not recommended for production use. Consider using environment variables or other secure methods to store and access your API key.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
+Feel free to raise an issue or submit a pull request if you have any enhancements or fixes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+This project is under the MIT License. See [LICENSE](LICENSE) file for more details.
