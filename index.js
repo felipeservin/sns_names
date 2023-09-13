@@ -1,11 +1,15 @@
 const express = require('express');
-//const cors = require('cors');
-
+const cors = require('cors');
 
 const app = express();
 
-// Middleware
-//app.use(cors());
+// Use cors middleware and configure it
+app.use(cors({
+    origin: true, // Reflect the origin if it's in the allowed list or not
+    methods: ["GET", "POST"], // allowed HTTP methods
+    credentials: true, // required to handle session cookies
+}));
+
 app.get('/domain/:name', async (req, res) => {
   const { name } = req.params;
   const apiUrl = `https://api.geniidata.com/api/1/sns/name/${name}`;
