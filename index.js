@@ -16,7 +16,7 @@ app.get('/domain/:name', async (req, res) => {
   
   const headers = {
     'Accept': 'application/json',
-    'api-key': '142cf1b0-1ca7-11ee-bb5e-9d74c2e854ac'
+    'api-key': 'jdko38cb-otnl-cfvq-gk5t-fki3ppac1gig'
   };
 
   try {
